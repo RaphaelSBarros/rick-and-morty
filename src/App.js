@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './css/App.css';
 
-const mock = [
+/*const mock = [
   {
       "id": 1,
       "name": "Rick Sanchez",
@@ -664,12 +664,12 @@ const mock = [
       "url": "https://rickandmortyapi.com/api/character/20",
       "created": "2017-11-04T22:34:53.659Z"
   }
-]
+]*/
 
 function App() {
 
   const [ conteudo, setConteudo] = useState(<></>);
-  const [ filtro, setFiltro] = useState(<></>);
+  //const [ filtro, setFiltro] = useState(<></>);
 
   async function carregarTodosPersonagens(){
     const requestOptions = {
@@ -695,7 +695,7 @@ function App() {
 
     return todosPersonagens.map(personagem => 
       <div className='card char' key={personagem.id}>
-        <img src={ personagem.image }/>
+        <img src={ personagem.image } alt= { personagem.image } />
         <h2>{ personagem.name }</h2>
         <div className='char-info'>
           <span><b>Espécie:</b> { personagem.species }</span>
@@ -713,7 +713,7 @@ function App() {
       setConteudo(await listarPersonagens())
     }
     getConteudo()
-  }, []);
+  });
 
   return (
     <div className="App">
